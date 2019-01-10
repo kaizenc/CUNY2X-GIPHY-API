@@ -7,8 +7,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-            <SearchField/>
-
+                <div className="Header">
+                    <h1>GIPHY 3.0</h1>
+                    <SearchField/>
+                </div>
             </div>
         );
     }

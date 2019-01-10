@@ -1,0 +1,16 @@
+.SearchBar input{
+    font-family: Gerogia;
+    font-size: 20px;
+}
+
+.SearchBar button{
+    font-family: Gerogia;
+    font-size: 20px;
+}
+
+.Gifs{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: coral;
+    justify-content: space-around;
+}
