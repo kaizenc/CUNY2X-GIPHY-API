@@ -47,7 +47,22 @@ class SearchField extends Component {
             console.log(error);
         });
     }
-    
+    reSort(key){
+        let temp_data = this.state.data;
+        temp_data.sort((a, b) => {
+            if(a[key] < b[key]){
+                return -1;
+            }
+            if(a[key] > b[key]){
+                return 1;
+            }
+            return 0;
+        });
+        this.setState({
+            data: temp_data,
+        });
+    }
+
     componentDidMount() {
         axios.get('http://api.giphy.com/v1/gifs/trending?api_key=' + variables.API_KEY)
             .then(response => {
