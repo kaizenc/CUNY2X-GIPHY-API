@@ -17,8 +17,10 @@ class App extends Component {
         });
         return (
             <div className="App">
-            <SearchField/>
-            {gifs}
+                <div className="Header">
+                    <h1>GIPHY 3.0</h1>
+                    <SearchField/>
+                </div>
             </div>
         );
     }

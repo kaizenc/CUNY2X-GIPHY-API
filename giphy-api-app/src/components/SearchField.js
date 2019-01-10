@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import GifCard from './GifCard';
+import './SearchField.css';
 let variables = require('../variables');
 
 class SearchField extends Component {
@@ -67,12 +68,15 @@ class SearchField extends Component {
         });
         return (
             <div className="SearchField">
-                Search:&nbsp;
-                <input type="text" value={this.state.input} onChange={this.handleChange}></input>
-                <button onClick={this.handleSearch}>
-                    Search
-                </button>
-                {gifs}
+                <div className="SearchBar">
+                    <input type="text" value={this.state.input} onChange={this.handleChange}></input>
+                    <button onClick={this.handleSearch}>
+                        Search
+                    </button>
+                </div>
+                <div className="Gifs">
+                    {gifs}
+                </div>
             </div>
         );
     }
