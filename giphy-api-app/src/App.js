@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchField from './components/SearchField';
 import GifCard from './components/GifCard';
-import axios from 'axios';
-let variables = require('./variables.js');
 
 class App extends Component {
     constructor(props){
