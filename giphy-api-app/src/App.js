@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import SwitchField from './components/SwitchField';
+import SearchField from './components/SearchField';
+let variables = require('./variables.js');
 
 class App extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="App">
-        <SwitchField/>
+        <SearchField/>
+        <p>{variables.API_KEY}</p>
       </div>
     );
   }

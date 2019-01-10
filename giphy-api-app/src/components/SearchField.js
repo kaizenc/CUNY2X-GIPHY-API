@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import GifCard from './GifCard';
 
-class SwitchField extends Component {
+class SearchField extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,11 +12,11 @@ class SwitchField extends Component {
 
     render() {
         return (
-            <div className="SwitchField">
+            <div className="SearchField">
                 <GifCard/>
             </div>
         );
     }
 }
 
-export default SwitchField;
+export default SearchField;
