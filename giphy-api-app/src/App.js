@@ -13,32 +13,28 @@ class App extends Component {
             blah: "blah"
         };
     }
-    loadData(data_){
-        this.setState({
-            data: data_,
-        })
-    }
     componentDidMount() {
-        console.log(this.state.blah);
-
         axios.get('http://api.giphy.com/v1/gifs/trending?api_key=' + variables.API_KEY)
-            .then(function (response) {
-                this.loadData(response.data);
+            .then(response => {
+                this.setState({
+                    data: response.data.data,
+                });
+
             })
-            .catch(function (error) {
+            .catch(error => {
                 console.log(error);
             });
     }
 
     render() {
         let gifs = this.state.data.map(x => {
-            return <GifCard title={x.title} imageUrl={x.images.fixed_width.url}/>;
+            return <GifCard key={x.id} title={x.title} imageUrl={x.images.fixed_width.url}/>;
         });
         return (
             <div className="App">
             <SearchField/>
             {gifs}
-            <GifCard title="Title" imageUrl="https://media2.giphy.com/media/l378AEZceMwWboAQE/200w.gif"/>
+
             </div>
         );
     }

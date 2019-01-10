@@ -35,7 +35,7 @@ class SearchField extends Component {
         let SEARCH_TERM = this.sanitizeInput(this.state.input);
         let url = "http://api.giphy.com/v1/gifs/search?q=" + SEARCH_TERM + "&api_key=" + API_KEY;
         console.log(url);
-        
+
         axios.get(url)
             .then(response => {
                 var result = response.data.map();
