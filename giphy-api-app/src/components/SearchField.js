@@ -33,6 +33,7 @@ class SearchField extends Component {
 
     handleDropChange = (event) => {
         this.reSort(event.target.value);
+        console.log(event.target.value);
     }
 
     fetchGifData() {
@@ -52,6 +53,7 @@ class SearchField extends Component {
             console.log(error);
         });
     }
+
     reSort(key){
         let temp_data = this.state.data;
         temp_data.sort((a, b) => {
@@ -90,6 +92,8 @@ class SearchField extends Component {
                 <div className="SearchBar">
                     <input type="text" value={this.state.input} onChange={this.handleChange}></input>
                     <select onChange={this.handleDropChange}>
+                        <option value="">-Sort by-</option>
+                        <option value="_score">Score</option>
                         <option value="title">Title</option>
                         <option value="import_datetime">Import Time</option>
                         <option value="username">User</option>
