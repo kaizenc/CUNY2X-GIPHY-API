@@ -6,7 +6,7 @@ class GifCard extends Component {
         return (
             <div className="GifCard">
                 <h4>{this.props.title}</h4>
-                <img src={this.props.imageUrl}></img>
+                <img src={this.props.imageUrl} alt=""></img>
             </div>
         );
     }

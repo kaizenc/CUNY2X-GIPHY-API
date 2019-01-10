@@ -31,6 +31,10 @@ class SearchField extends Component {
         return (output);
     }
 
+    handleDropChange = (event) => {
+        this.reSort(event.target.value);
+    }
+
     fetchGifData() {
         let API_KEY = variables.API_KEY;
         let SEARCH_TERM = this.sanitizeInput(this.state.input);
@@ -85,6 +89,11 @@ class SearchField extends Component {
             <div className="SearchField">
                 <div className="SearchBar">
                     <input type="text" value={this.state.input} onChange={this.handleChange}></input>
+                    <select onChange={this.handleDropChange}>
+                        <option value="title">Title</option>
+                        <option value="import_datetime">Import Time</option>
+                        <option value="username">User</option>
+                    </select>
                     <button onClick={this.handleSearch}>
                         Search
                     </button>
