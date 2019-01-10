@@ -37,13 +37,34 @@ class SearchField extends Component {
         console.log(url);
 
         axios.get(url)
+        .then(response => {
+            this.setState({
+                data: response.data.data,
+            });
+
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+    
+    componentDidMount() {
+        axios.get('http://api.giphy.com/v1/gifs/trending?api_key=' + variables.API_KEY)
             .then(response => {
-                var result = response.data.map();
-                this.setState({data: result});
-            }).catch(err => { console.log(err); });
+                this.setState({
+                    data: response.data.data,
+                });
+
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     render() {
+        let gifs = this.state.data.map(x => {
+            return <GifCard key={x.id} title={x.title} imageUrl={x.images.fixed_width.url}/>;
+        });
         return (
             <div className="SearchField">
                 Search:&nbsp;
@@ -51,7 +72,7 @@ class SearchField extends Component {
                 <button onClick={this.handleSearch}>
                     Search
                 </button>
-                <GifCard/>
+                {gifs}
             </div>
         );
     }

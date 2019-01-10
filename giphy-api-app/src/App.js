@@ -10,20 +10,7 @@ class App extends Component {
         super(props);
         this.state = {
             data: [],
-            blah: "blah"
         };
-    }
-    componentDidMount() {
-        axios.get('http://api.giphy.com/v1/gifs/trending?api_key=' + variables.API_KEY)
-            .then(response => {
-                this.setState({
-                    data: response.data.data,
-                });
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
     }
 
     render() {
@@ -34,7 +21,6 @@ class App extends Component {
             <div className="App">
             <SearchField/>
             {gifs}
-
             </div>
         );
     }
