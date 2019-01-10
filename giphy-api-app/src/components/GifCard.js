@@ -4,8 +4,8 @@ class GifCard extends Component {
     render() {
         return (
             <div className="GifCard">
-                <p>Adding test</p>
-                <p>This is where we want to render a GifCard</p>
+                <h4>{this.props.title}</h4>
+                <img src={this.props.imageUrl}></img>
             </div>
         );
     }
